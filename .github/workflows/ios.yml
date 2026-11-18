@@ -20,7 +20,8 @@ concurrency:
 
 jobs:
   ipa:
-    runs-on: macos-15-intel
+    # macos-15-intel 晚高峰排队约 15 分钟被 runner 回收取消；先切 macos-15（arm64）队列，generic/platform=iOS 仅编 arm64 真机包，兼容。
+    runs-on: macos-15
     timeout-minutes: 40
     steps:
       # ── 换成"拉私有库" ───────────────────────────────────────────
